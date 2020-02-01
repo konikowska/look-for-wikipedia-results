@@ -6,24 +6,17 @@ import ListResults from "./components/ListResults";
 
 export default function App() {
   const [searchPhrase, setSearchPhrase] = React.useState("s");
-  const [listItems, setListItems] = React.useState("s");
   const [{ data, isLoading, isError }] = useFetch(searchPhrase);
-  console.log(data, isLoading, isError);
-  // React.useEffect(() => {
-  //   if (response && !errors) {
-  //     setListItems(response);
-  //   }
-  // }, [response, errors]);
 
   const handleChange = e => {
     e.preventDefault();
     e.stopPropagation();
-    // setSearchPhrase(e.target.value);
+    setSearchPhrase(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    // setSearchPhrase(e.target.value);
+    setSearchPhrase(e.target.value);
   };
 
   return (
