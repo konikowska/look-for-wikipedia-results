@@ -8,7 +8,7 @@ import ListResults from "./components/ListResults";
 export default function App() {
   const [searchPhrase, setSearchPhrase] = React.useState("search");
   const [replaceWithPhrase, setReplaceWithPhrase] = React.useState("replace");
-  const [{ data, isLoading, isError }] = useFetch(searchPhrase);
+  const [{ data, isLoading, isError }] = useFetch({searchPhrase});
 
   const handleSearchChange = e => {
     e.preventDefault();

@@ -14,13 +14,14 @@ function FormSearch({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label htmlFor="search">
           search phrase:
           <input
             type="text"
             name="name"
             value={searchPhrase}
             onChange={handleChange}
+            id="search"
             required
           />
         </label>

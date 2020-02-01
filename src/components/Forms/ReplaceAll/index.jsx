@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 import * as React from "react";
 
@@ -14,14 +14,13 @@ function FormReplaceAll({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label htmlFor="replaceWith">
           replace with:
           <input
             type="text"
-            name="name"
+            id="replaceWith"
             value={searchPhrase}
             onChange={handleChange}
-            required
           />
         </label>
         <button type="button" onClick={handleSubmit}>
