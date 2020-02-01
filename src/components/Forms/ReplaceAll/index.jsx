@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-function Form({
+function FormReplaceAll({
   handleChange,
   handleSubmit,
   searchPhrase
@@ -15,7 +15,7 @@ function Form({
     <>
       <form onSubmit={handleSubmit}>
         <label>
-          search phrase:
+          replace with:
           <input
             type="text"
             name="name"
@@ -25,11 +25,13 @@ function Form({
           />
         </label>
         <button type="button" onClick={handleSubmit}>
-          SEARCH
+          replace
+        </button>
+        <button type="button" onClick={handleSubmit}>
+          replace all
         </button>
       </form>
-      {/* {response && <ListResults list={response} />} */}
     </>
   );
 }
-export default Form;
+export default FormReplaceAll;
