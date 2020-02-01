@@ -1,5 +1,6 @@
 import React from "react";
-import "./styles.css";
+
+// import "./styles.css";
 import FormSearch from "./components/Forms/Search";
 import FormReplaceAll from "./components/Forms/ReplaceAll";
 import useFetch from "./components/services/useFetch";
@@ -8,7 +9,10 @@ import ListResults from "./components/ListResults";
 export default function App() {
   const [searchPhrase, setSearchPhrase] = React.useState("search");
   const [replaceWithPhrase, setReplaceWithPhrase] = React.useState("replace");
-  const [{ data, isLoading, isError }] = useFetch({searchPhrase});
+  const [{ data, isLoading, isError }] = useFetch({
+    searchPhrase,
+    delay: 300
+  });
 
   const handleSearchChange = e => {
     e.preventDefault();

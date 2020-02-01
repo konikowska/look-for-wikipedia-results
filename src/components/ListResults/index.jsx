@@ -1,12 +1,12 @@
 // @flow
 
 import * as React from "react";
+import _isEmpty from 'lodash/isEmpty'
 import ListItem from "./ListItem";
 
 function ListResults({ list }: { list: ?Object }) {
-  if (!list) {
+  if (_isEmpty(list)) {
     console.error('List of results is empty')
-    return null;
   }
 
   return (
