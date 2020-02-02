@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 
 export const StyledListItem = styled("li")`
   padding: 0.5rem;
-  border: 1px solid red;
+  border: 2px solid gray;
   margin-bottom: 0.5rem;
 
   .searchmatch {
-    color: red;
+    background-color: yellow;
+    font-weight: bold;
   }
 `;
 

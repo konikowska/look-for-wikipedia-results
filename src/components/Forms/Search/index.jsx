@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from "react";
+import { StyledForm, StyledButton } from "../styles";
 
 function FormSearch({
   handleChange,
@@ -12,22 +13,20 @@ function FormSearch({
   searchPhrase: string
 }) {
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="search">
-          search phrase:
-          <input
-            type="text"
-            name="name"
-            value={searchPhrase}
-            onChange={handleChange}
-            id="search"
-            required
-          />
-        </label>
-        <button type="submit">SEARCH</button>
-      </form>
-    </>
+    <StyledForm onSubmit={handleSubmit}>
+      <label htmlFor="search">
+        Search phrase:
+        <input
+          type="text"
+          name="name"
+          value={searchPhrase}
+          onChange={handleChange}
+          id="search"
+          required
+        />
+      </label>
+      <StyledButton type="submit">search</StyledButton>
+    </StyledForm>
   );
 }
 export default FormSearch;

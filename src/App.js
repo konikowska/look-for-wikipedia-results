@@ -1,11 +1,12 @@
 import React from "react";
-
-import "./styles.css";
-import FormSearch from "./components/Forms/Search";
 import FormReplaceAll from "./components/Forms/ReplaceAll";
-import useFetch from "./components/services/useFetch";
+import FormSearch from "./components/Forms/Search";
 import ListResults from "./components/ListResults";
 import replaceWith from "./components/services/replaceWith";
+import useFetch from "./components/services/useFetch";
+import "./styles.css";
+import { Container } from "./styles";
+
 
 export default function App() {
   const [searchPhrase, setSearchPhrase] = React.useState("search");
@@ -22,7 +23,7 @@ export default function App() {
 
   const handleSearchSubmit = e => {
     e.preventDefault();
-    fetchData()
+    fetchData();
   };
 
   const handleReplaceChange = e => {
@@ -46,20 +47,22 @@ export default function App() {
 
   return (
     <div className="App">
-      <FormSearch
-        handleChange={handleSearchChange}
-        handleSubmit={handleSearchSubmit}
-        searchPhrase={searchPhrase}
-      />
-      <FormReplaceAll
-        replaceWithPhrase={replaceWithPhrase}
-        handleReplaceAll={handleReplaceAll}
-        handleReplace={handleReplace}
-        handleOnSubmit={handleReplaceSubmit}
-        handleOnChange={handleReplaceChange}
-      />{" "}
-      {isError && <p>Fetching error</p>}
-      {isLoading || !data ? <p>loading</p> : <ListResults list={data} />}
+      <Container>
+        <FormSearch
+          handleChange={handleSearchChange}
+          handleSubmit={handleSearchSubmit}
+          searchPhrase={searchPhrase}
+        />
+        <FormReplaceAll
+          replaceWithPhrase={replaceWithPhrase}
+          handleReplaceAll={handleReplaceAll}
+          handleReplace={handleReplace}
+          handleOnSubmit={handleReplaceSubmit}
+          handleOnChange={handleReplaceChange}
+        />{" "}
+        {isError && <p>Fetching error</p>}
+        {isLoading || !data ? <p>loading</p> : <ListResults list={data} />}
+      </Container>
     </div>
   );
 }

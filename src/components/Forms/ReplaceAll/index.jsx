@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from "react";
+import { StyledForm, StyledButton } from "../styles";
 
 function FormReplaceAll({
   handleReplace,
@@ -17,18 +18,23 @@ function FormReplaceAll({
 }) {
   return (
     <>
-      <form onSubmit={handleOnSubmit}>
+      <StyledForm onSubmit={handleOnSubmit}>
         <label htmlFor="replaceWith">
-          replace with:
-          <input type="text" id="replaceWith" value={replaceWithPhrase} onChange={handleOnChange} />
+          Replace with:
+          <input
+            type="text"
+            id="replaceWith"
+            value={replaceWithPhrase}
+            onChange={handleOnChange}
+          />
         </label>
-        <button type="button" onClick={handleReplace}>
+        <StyledButton type="button" onClick={handleReplace}>
           replace
-        </button>
-        <button type="button" onClick={handleReplaceAll}>
+        </StyledButton>
+        <StyledButton type="button" onClick={handleReplaceAll}>
           replace all
-        </button>
-      </form>
+        </StyledButton>
+      </StyledForm>
     </>
   );
 }
