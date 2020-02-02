@@ -7,7 +7,7 @@ import { StyledList } from "./styles";
 
 function ListResults({ list }: { list: ?Object }) {
   if (_isEmpty(list)) {
-    console.error("List of results is empty");
+    return <p>No results found</p>;
   }
 
   return (
@@ -17,7 +17,7 @@ function ListResults({ list }: { list: ?Object }) {
           key={`${item.title}-${index * 2}`}
           domProps={{
             id: `${item.title}-${index * 2}`,
-            'data-name': 'list-item'
+            "data-name": "list-item"
           }}
           title={item.title}
           snippet={item.snippet}

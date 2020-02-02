@@ -25,9 +25,7 @@ function FormSearch({
             required
           />
         </label>
-        <button type="submit">
-          SEARCH
-        </button>
+        <button type="submit">SEARCH</button>
       </form>
     </>
   );

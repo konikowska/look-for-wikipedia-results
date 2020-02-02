@@ -10,32 +10,38 @@ import replaceWith from "./components/services/replaceWith";
 export default function App() {
   const [searchPhrase, setSearchPhrase] = React.useState("search");
   const [replaceWithPhrase, setReplaceWithPhrase] = React.useState("replace");
-  const [{ data, isLoading, isError }] = useFetch({
+  const [{ data, isLoading, isError, fetchData }] = useFetch({
     searchPhrase,
     delay: 300
   });
 
   const handleSearchChange = e => {
     e.preventDefault();
-    e.stopPropagation();
     setSearchPhrase(e.target.value);
   };
 
   const handleSearchSubmit = e => {
     e.preventDefault();
-    setSearchPhrase(e.target.value);
+    fetchData()
   };
 
   const handleReplaceChange = e => {
     e.preventDefault();
-    e.stopPropagation();
     setReplaceWithPhrase(e.target.value);
   };
 
   const handleReplaceSubmit = e => {
+    handleReplaceChange(e);
+  };
+
+  const handleReplace = e => {
     e.preventDefault();
-    setReplaceWithPhrase(e.target.value);
-    replaceWith(data[0], replaceWithPhrase, 'ALL')
+    replaceWith({ replaceWithPhrase, mode: "SINGLE" });
+  };
+
+  const handleReplaceAll = e => {
+    e.preventDefault();
+    replaceWith({ replaceWithPhrase, mode: "ALL" });
   };
 
   return (
@@ -46,15 +52,14 @@ export default function App() {
         searchPhrase={searchPhrase}
       />
       <FormReplaceAll
-        handleChange={handleReplaceChange}
-        handleSubmit={handleReplaceSubmit}
-        searchPhrase={replaceWithPhrase}
-      />
-      {isLoading || !data || isError ? (
-        <p>loading</p>
-      ) : (
-        <ListResults list={data} />
-      )}
+        replaceWithPhrase={replaceWithPhrase}
+        handleReplaceAll={handleReplaceAll}
+        handleReplace={handleReplace}
+        handleOnSubmit={handleReplaceSubmit}
+        handleOnChange={handleReplaceChange}
+      />{" "}
+      {isError && <p>Fetching error</p>}
+      {isLoading || !data ? <p>loading</p> : <ListResults list={data} />}
     </div>
   );
 }
