@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 import * as React from "react";
 
@@ -25,7 +25,7 @@ function FormSearch({
             required
           />
         </label>
-        <button type="button" onClick={handleSubmit}>
+        <button type="submit">
           SEARCH
         </button>
       </form>

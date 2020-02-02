@@ -8,8 +8,9 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "axios": "0.19.2",
-    "emotion": "10.0.27",
     "flow-bin": "0.117.0",
     "lodash": "^4.17.15",
     "react": "16.12.0",

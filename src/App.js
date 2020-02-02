@@ -1,10 +1,11 @@
 import React from "react";
 
-// import "./styles.css";
+import "./styles.css";
 import FormSearch from "./components/Forms/Search";
 import FormReplaceAll from "./components/Forms/ReplaceAll";
 import useFetch from "./components/services/useFetch";
 import ListResults from "./components/ListResults";
+import replaceWith from "./components/services/replaceWith";
 
 export default function App() {
   const [searchPhrase, setSearchPhrase] = React.useState("search");

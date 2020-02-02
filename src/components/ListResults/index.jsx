@@ -1,20 +1,28 @@
 // @flow
 
 import * as React from "react";
-import _isEmpty from 'lodash/isEmpty'
+import _isEmpty from "lodash/isEmpty";
 import ListItem from "./ListItem";
+import { StyledList } from "./styles";
 
 function ListResults({ list }: { list: ?Object }) {
   if (_isEmpty(list)) {
-    console.error('List of results is empty')
+    console.error("List of results is empty");
   }
 
   return (
-    <ul>
-      {list.map(item => (
-        <ListItem key={item.title}>{item.snippet}</ListItem>
+    <StyledList>
+      {list.map((item, index) => (
+        <ListItem
+          key={`${item.title}-${index * 2}`}
+          domProps={{
+            id: `${item.title}-${index * 2}`
+          }}
+          title={item.title}
+          snippet={item.snippet}
+        />
       ))}
-    </ul>
+    </StyledList>
   );
 }
 export default ListResults;
