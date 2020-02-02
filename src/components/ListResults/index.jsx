@@ -16,7 +16,8 @@ function ListResults({ list }: { list: ?Object }) {
         <ListItem
           key={`${item.title}-${index * 2}`}
           domProps={{
-            id: `${item.title}-${index * 2}`
+            id: `${item.title}-${index * 2}`,
+            'data-name': 'list-item'
           }}
           title={item.title}
           snippet={item.snippet}

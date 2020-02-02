@@ -35,6 +35,7 @@ export default function App() {
   const handleReplaceSubmit = e => {
     e.preventDefault();
     setReplaceWithPhrase(e.target.value);
+    replaceWith(data[0], replaceWithPhrase, 'ALL')
   };
 
   return (
