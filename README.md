@@ -8,7 +8,8 @@ Implement a code that will look for the top 10 results in the Wikipedia API (sam
 - The request should be invoked on search button click and while typing in search field (not on every key pressed)
 - Replace should replace the first highlighted search match with a phrase taken from “replace with” field.
 - Replace all should replace every highlighted search match.
-- Allowed technologies: React  
+- Allowed technologies: React
+- Max 6 hours for this task
 
 # Scripts
   Run with `yarn start`
